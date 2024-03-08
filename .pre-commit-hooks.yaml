@@ -1,5 +1,5 @@
 - id: blocking-comment
   name: Prevent on Blocking Comments
   description: This hook prevents commits by checking for blocking comments in the code.
-  entry: check-for-blocking-comments
+  entry: __main__
   language: python
