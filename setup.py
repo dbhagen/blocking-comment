@@ -12,7 +12,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='blocking-comment',
-    version='1.0.4',
+    version='1.0.5',
     description='Pre-commit hook to check for blocking comments before commit',
     author='Daniel Hagen',
     author_email='<5039466+dbhagen@users.noreply.github.com>',

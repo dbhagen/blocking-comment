@@ -19,7 +19,7 @@ Add the following hook to your `.pre-commit-config.yaml`
 ```yaml
 repos:
   - repo: https://github.com/dbhagen/blocking-comment
-    rev: v1.0.4
+    rev: v1.0.5
     hooks:
       - id: blocking-comment
 ```
