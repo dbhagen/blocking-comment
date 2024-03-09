@@ -41,11 +41,24 @@ def check_blocking_comments(files):
                     content,
                     re.MULTILINE,
                 ) or
+                # Markdown (multiline)
                 re.search(
                     r'^\s*<!--.*blocking-comment',
                     content,
                     re.DOTALL,
-                )       # Markdown (multiline)
+                ) or
+                # Markdown Hash
+                re.search(
+                    r'^\s*<#.*blocking-comment',
+                    content,
+                    re.MULTILINE,
+                ) or
+                # Markdown Hash (multiline)
+                re.search(
+                    r'^\s*#.*blocking-comment',
+                    content,
+                    re.DOTALL,
+                )
             ):
                 print(f"Blocking comment found in file: {file_path}")
                 print('Content:')
