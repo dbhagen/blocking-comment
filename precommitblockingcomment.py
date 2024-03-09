@@ -33,9 +33,12 @@ def check_blocking_comments(files):
 
 
 def main():
-    if __name__ == '__main__':
-        files = sys.argv[1:]
-        if not check_blocking_comments(files):
-            sys.exit(0)  # No blocking comments found, allow the commit
-        else:
-            sys.exit(1)  # Blocking comments found, block the commit
+    files = sys.argv[1:]
+    if not check_blocking_comments(files):
+        sys.exit(0)  # No blocking comments found, allow the commit
+    else:
+        sys.exit(1)  # Blocking comments found, block the commit
+
+
+if __name__ == '__main__':
+    main()
