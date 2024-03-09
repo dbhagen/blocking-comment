@@ -9,7 +9,6 @@ def check_blocking_comments(files):
     blocking_comments_found = False
     for file_path in files:
         with open(file_path) as file:
-            print(f"Processing file: {file_path}")
             content = file.read()
             if (
                 # Java, JavaScript, Python, HTML comments
