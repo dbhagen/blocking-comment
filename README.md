@@ -17,10 +17,11 @@ For example, you might use this hook to mark areas of code that need additional 
 Add the following hook to your `.pre-commit-config.yaml`
 
 ```yaml
--   repo: https://github.com/dbhagen/pre-commit-blocking-comment/releases/tag/v1.0.3
+repos:
+  - repo: https://github.com/dbhagen/pre-commit-blocking-comment/releases/tag/v1.0.3
     rev: v1.0.3
     hooks:
-    -   id: blocking-comment
+      - id: blocking-comment
 ```
 
 ## Usage
