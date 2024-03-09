@@ -15,8 +15,8 @@ def check_blocking_comments(files):
                     r'(//|/\*|#|<!--).*?(blocking-comment|block-commit)', line,
                 )
                 for match in matches:
-                    print(f"Line {line_num}, position {match.start()}")
-                    print(f"  Blocking comment found in file: {file_path}")
+                    print(f"Blocking comment found in file: {file_path}")
+                    print(f"  Line {line_num}, position {match.start()}")
                     print(f"  {line.strip()}")
                     blocking_comments_found = True
     return blocking_comments_found
