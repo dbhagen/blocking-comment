@@ -9,25 +9,16 @@ def check_blocking_comments(files):
     blocking_comments_found = False
     for file_path in files:
         with open(file_path) as file:
-            content = file.read()
-            if (
-                # Java, JavaScript, Python, HTML comments
-                re.search(
-                    r'^\s*(//|/\*|#|<!--).*?(blocking-comment|block-commit)',
-                    content,
-                    re.MULTILINE,
+            lines = file.readlines()
+            for line_num, line in enumerate(lines, start=1):
+                matches = re.finditer(
+                    r'(//|/\*|#|<!--).*?(blocking-comment|block-commit)', line,
                 )
-                or
-                re.search(
-                    r'(\s+|^)(//|/\*|#|<!--).*?(blocking-comment|block-commit).*?(\s+|$)',  # noqa: E501
-                    content,
-                    re.MULTILINE,
-                )  # Comment at the end of a line
-            ):
-                print(f"Blocking comment found in file: {file_path}")
-                print('Content:')
-                print(content)
-                blocking_comments_found = True
+                for match in matches:
+                    print(f"Line {line_num}, position {match.start()}")
+                    print(f"  Blocking comment found in file: {file_path}")
+                    print(f"  {line.strip()}")
+                    blocking_comments_found = True
     return blocking_comments_found
 
 
