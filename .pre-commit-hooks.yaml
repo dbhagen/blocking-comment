@@ -1,7 +1,7 @@
 - id: blocking-comment
   name: Prevent on Blocking Comments
   description: This hook prevents commits by checking for blocking comments in the code.
-  entry: precommitblockingcomment
+  entry: blockingcomment
   language: python
   fail_fast: true
   files: ''
