@@ -3,5 +3,4 @@
   description: This hook prevents commits by checking for blocking comments in the code.
   entry: blockingcomment
   language: python
-  fail_fast: true
   files: ''
