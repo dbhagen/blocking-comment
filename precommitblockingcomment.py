@@ -11,54 +11,18 @@ def check_blocking_comments(files):
         with open(file_path, encoding='utf-8') as file:
             content = file.read()
             if (
-                # Java, JavaScript
+                # Java, JavaScript, Python, HTML comments
                 re.search(
-                    r'^\s*//.*blocking-comment',
+                    r'^\s*(//|/\*|#|<!--).*?(blocking-comment|block-commit)',
                     content,
                     re.MULTILINE,
-                ) or
-                # Java, JavaScript (multiline)
-                re.search(
-                    r'^\s*/\*.*blocking-comment',
-                    content,
-                    re.DOTALL,
-                ) or
-                # HTML
-                re.search(
-                    r'^\s*<!--.*blocking-comment',
-                    content,
-                    re.MULTILINE,
-                ) or
-                # HTML (multiline)
-                re.search(
-                    r'^\s*<!--.*blocking-comment',
-                    content,
-                    re.DOTALL,
-                ) or
-                # Markdown
-                re.search(
-                    r'^\s*<!--.*blocking-comment',
-                    content,
-                    re.MULTILINE,
-                ) or
-                # Markdown (multiline)
-                re.search(
-                    r'^\s*<!--.*blocking-comment',
-                    content,
-                    re.DOTALL,
-                ) or
-                # Markdown Hash
-                re.search(
-                    r'^\s*<#.*blocking-comment',
-                    content,
-                    re.MULTILINE,
-                ) or
-                # Markdown Hash (multiline)
-                re.search(
-                    r'^\s*#.*blocking-comment',
-                    content,
-                    re.DOTALL,
                 )
+                or
+                re.search(
+                    r'(\s+|^)(//|/\*|#|<!--).*?(blocking-comment|block-commit).*?(\s+|$)',  # noqa: E501
+                    content,
+                    re.MULTILINE,
+                )  # Comment at the end of a line
             ):
                 print(f"Blocking comment found in file: {file_path}")
                 print('Content:')
