@@ -28,6 +28,23 @@ repos:
 
 The [pre-commit](https://pre-commit.com) hook will automatically run before each commit. If any blocking comments are found, the commit will be blocked, and information about the offending comments will be displayed.
 
+## Comment type supports
+
+The following comment types are supported:
+```python
+# blocking-comment: Don't commit
+# block-commit
+```
+```java
+// blocking-comment: Don't commit
+// block-commit
+/* blocking-comment: Don't commit */
+/* block-commit */
+```
+```HTML
+<!-- blocking-comment: Don't commit -->
+<!-- block-commit -->
+```
 ## Example
 
 Within a `git` directory with `pre-commit` configured as described above, modify a file to have the contents `# block-commit` anywhere in the file. Then try to commit your files:
