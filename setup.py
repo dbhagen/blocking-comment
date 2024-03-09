@@ -11,21 +11,21 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
-    name='pre-commit-blocking-comment',
-    version='1.0.3',
+    name='blocking-comment',
+    version='1.0.4',
     description='Pre-commit hook to check for blocking comments before commit',
     author='Daniel Hagen',
     author_email='<5039466+dbhagen@users.noreply.github.com>',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/dbhagen/pre-commit-blocking-comment',
+    url='https://github.com/dbhagen/blocking-comment',
     python_requires='>=3.7, <4',
     entry_points={
         'console_scripts': [
-            'precommitblockingcomment=precommitblockingcomment:main',
+            'blockingcomment=blockingcomment:main',
         ],
     },
     scripts=[
-        'precommitblockingcomment.py',
+        'blockingcomment.py',
     ],
 )

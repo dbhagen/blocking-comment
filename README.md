@@ -1,4 +1,4 @@
-# Pre-Commit-Blocking-Comment
+# Pre-Commit Blocking-Comment Hook
 
 Pre-commit hook to check for blocking comments before committing.
 
@@ -18,8 +18,8 @@ Add the following hook to your `.pre-commit-config.yaml`
 
 ```yaml
 repos:
-  - repo: https://github.com/dbhagen/pre-commit-blocking-comment/releases/tag/v1.0.3
-    rev: v1.0.3
+  - repo: https://github.com/dbhagen/blocking-comment
+    rev: v1.0.4
     hooks:
       - id: blocking-comment
 ```
